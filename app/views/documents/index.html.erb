@@ -1,0 +1,16 @@
+<div id="page_name">Документы</div>
+<div class='content'>
+<% for document in @documents %>
+  	<%= document.description %><br />
+<% end %>
+
+<% if logged_in? %>
+	<% if Document.count.zero? %>
+		<%= link_to 'Добавить текст страницу Документы', new_document_path %>
+	<% else %>
+		<%= link_to 'Изменить текст странице Документы', edit_document_path(document) %> |
+		<%= link_to 'Удалить текст со страницы Документы', document, :confirm => 'Вы уверены?', :method => :delete %>
+	<% end %>
+	<br />
+<% end %>
+</div>

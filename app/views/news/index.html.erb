@@ -1,0 +1,19 @@
+<div id="page_name">Новости</div>
+<div class='content'>
+<table>
+<% @news.each do |new| %>
+  <tr>
+  	<td class="new_date"><%= new.created_at.strftime('%d-%m-%Y') %></td>
+  	<td><strong><%= link_to new.title,  new_instance_path(new)%></strong></td>
+ 	<% if logged_in? %>
+    <td><%= link_to 'Редактировать', edit_new_instance_path(new) %></td>
+    <td><%= link_to 'Удалить', new_instance_path(new), :confirm => 'Вы уверены?', :method => :delete %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+<br />
+<% if logged_in? %>
+<%= link_to 'Добавить новость', new_new_instance_path %><br />
+<% end %>
+</div>

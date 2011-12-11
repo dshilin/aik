@@ -1,0 +1,22 @@
+<div class='content'>
+<h1>Добавить новость</h1>
+<% form_for :new, :url => news_path, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <p>Путь к фото:<br/>
+    <%= f.file_field :photo %>
+  </p>
+  <p>Заголовок новости:</p>
+  <p>
+  	<%= f.text_field(:title) %>
+  </p>
+  <p>Описание новости:</p>
+  <p>
+  	<%= f.text_area(:description, :size => "119x10") %>
+  </p>
+  <p>
+    <%= f.submit 'Добавить' %>
+  </p>
+<% end %>
+
+<%= link_to 'Назад', news_path %>
+</div>

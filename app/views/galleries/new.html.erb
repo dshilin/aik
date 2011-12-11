@@ -1,0 +1,20 @@
+<div class='content'>
+<h1>Добавить альбом</h1>
+<% form_for :gallery, :url => galleries_path, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <p>Название:</p>
+  <p>
+  	<%= f.text_field(:title) %>
+  </p>
+  <p>Фотографии:</p>
+  <p>
+  	<%= f.text_area(:description, :size => "119x10") %>
+  </p>
+  <p>
+    <%= f.submit 'Добавить' %>
+  </p>
+<% end %>
+
+<%= link_to 'Назад', galleries_path %>
+</div>

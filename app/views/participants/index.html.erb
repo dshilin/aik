@@ -1,0 +1,22 @@
+<div id="page_name">Руководоство</div>
+<div class='content'>
+<div id="participants">
+
+<table>
+<% @participants.each do |participant| %>
+  <tr>
+  	<td align='left'><strong><%= link_to participant.title,  participant_path(participant)%></strong></td>
+ 	<% if logged_in? %>
+    <td><%= link_to 'Редактировать', edit_participant_path(participant) %></td>
+    <td><%= link_to 'Удалить', participant_path(participant), :confirm => 'Вы уверены?', :method => :delete %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+<br />
+<% if logged_in? %>
+<%= link_to 'Добавить участника', new_participant_path %><br />
+
+<% end %>
+</div>
+</div>

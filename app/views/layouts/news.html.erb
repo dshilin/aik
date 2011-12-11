@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Новости - Официальный сайт Национального совета Айкидо России</title>
+    <%= stylesheet_link_tag 'aik' %>
+</head>
+<body>
+
+<div align="center" >
+  <div id="top">
+    <table>
+      <tr>
+        <td>
+        </td>
+        <td>
+          <div class="black_name">Официальный сайт</div>
+          <div class="black_name">Национального совета</div>
+          <div class="red_name">Айкидо России</div>
+        </td>
+        <td id="adress_top">
+          г Москва, ул Короленко, д 2, стр 23, корпус 1
+        </td>
+      </tr>
+    </table>
+  </div>
+	<div id="menu">
+		<table>
+			<tr>
+                          <td><div><%=link_to 'Главная', ('/') %></div><div><%=link_to 'О нас', nsars_path%></div></td>
+                          <td><div><%=link_to 'Новости', news_path %></div><div><%=link_to 'Галерея', galleries_path %></div></td>
+                          <td><div><%=link_to 'События', events_path %></div><div><%=link_to 'Документы', documents_path %></div></td>
+                          <td><div><%=link_to 'Руководство', participants_path %></div><div><%=link_to 'Контакты', contacts_path %></div></td>
+		  	</tr>
+		</table>
+	</div>
+<br/>
+	<div id="content">
+          <% flash.each do |key,value| %>
+          <div id="flash" class="flash_<%= key %>" >
+            <span class="message"><%= value %></span>
+          </div>
+          <% end -%>
+	  <%= yield %>
+	</div>
+	<br/>
+	<br/>
+<div id="footer">
+  <table>
+    <tr>
+      <td></td>
+      <td><div>г Москва, ул Короленко, д 2, стр 23, корпус 1</div></td>
+      <td><div>2010-2011 &copy; Национальный совет Айкидо России</div></td>
+    </tr>
+  </table>
+</div>
+</div>
+</body>
+</html>

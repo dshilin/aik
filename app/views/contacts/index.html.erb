@@ -1,0 +1,16 @@
+<div id="page_name">Контакты</div>
+<div class='content'>
+<% for contact in @contacts %>
+  	<%= contact.description %><br />
+<% end %>
+
+<% if logged_in? %>
+	<% if Contact.count.zero? %>
+		<%= link_to 'Добавить текст страницу Контакты', new_contact_path %>
+	<% else %>
+		<%= link_to 'Изменить текст странице Контакты', edit_contact_path(contact) %> |
+		<%= link_to 'Удалить текст со страницы Контакты', contact, :confirm => 'Вы уверены?', :method => :delete %>
+	<% end %>
+	<br />
+<% end %>
+</div>

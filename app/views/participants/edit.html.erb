@@ -1,0 +1,21 @@
+<div class='content'>
+<h1>Редактировать руководителя</h1>
+
+<% form_for :participant, @participant, :url=>participant_path, :html => { :multipart => true, :method => :put }  do |f| %>
+  <%= f.error_messages %>
+  <p>Путь к фото:<br/>
+    <%= f.file_field :photo %>
+  </p>
+  <p>Имя:<br/>
+    <%= f.text_field(:title) %>
+  </p>
+  <p>Биография:<br/>
+    <%= f.text_area(:description, :size => "119x10") %>
+  </p>
+  <p>
+    <%= f.submit 'Изменить' %>
+  </p>
+<% end %>
+
+<%= link_to 'Назад', participants_path %>
+</div>

@@ -1,0 +1,22 @@
+<div id="page_name">Галерея</div>
+<div class='content'>
+<div id="galleries">
+
+<table>
+<% @galleries.each do |gallery| %>
+  <tr>
+  	<td align='left'><strong><%= link_to gallery.title,  gallery_path(gallery)%></strong></td>
+ 	<% if logged_in? %>
+    <td><%= link_to 'Редактировать', edit_gallery_path(gallery) %></td>
+    <td><%= link_to 'Удалить', gallery_path(gallery), :confirm => 'Вы уверены?', :method => :delete %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+<br />
+<% if logged_in? %>
+<%= link_to 'Добавить альбом', new_gallery_path %><br />
+
+<% end %>
+</div>
+</div>

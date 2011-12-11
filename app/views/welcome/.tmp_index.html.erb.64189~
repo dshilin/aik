@@ -1,0 +1,18 @@
+<table id="root">
+
+  <tr>
+
+    <td>
+    <% @news.each do |new| %>
+    	<div class="news_root">
+    		<strong><%= new.created_at.strftime('%d-%m-%Y') %></strong><br/>
+        	<%= link_to new.title,  new_instance_path(new)%>
+        </div>
+        <br/>
+    <% end %>
+    </td>
+    <td rowspan="3">
+    	<%= image_tag('карта.png') %>
+    </td>
+  </tr>
+</table>

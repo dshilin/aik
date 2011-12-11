@@ -1,0 +1,5 @@
+config/database.yml
+log/*.log
+public/concept_album/*
+db/*.sqlite3
+public/system/*

@@ -1,0 +1,16 @@
+<div id="page_name"><%= @new.title %></div>
+<div class="content">
+<table>
+<tr>
+	<% if @new.photo_file_name.nil? %>
+	<%else%>
+		<td>
+			<%= image_tag(@new.photo.url) %>
+		</td>
+	<%end%>
+<td id="description">
+<%= @new.description %>
+</td>
+</tr>
+</table>
+</div>

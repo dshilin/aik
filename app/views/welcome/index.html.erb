@@ -1,0 +1,32 @@
+<table id="root">
+  <tr>
+<!-- Top 5 news -->	
+    <td>
+    <h3>Последние новости</h3>
+      <% @news.each do |new| %>
+    	<div class="news_root">
+    	  <strong><%= new.created_at.strftime('%d-%m-%Y') %></strong><br/>
+          <%= link_to new.title,  new_instance_path(new)%>
+        </div>
+        <br/>
+      <% end %>
+    </td>
+<!-- Map -->
+    <td id="map" rowspan="5">
+      <%= image_tag('карта.png') %>
+    </td>
+  </tr>
+  <tr>
+<!-- Hot events -->
+    <td colspan="2">
+    <h3>Ближайшие события</h3>
+      <% @events.each do |event| %>
+        <div class="events_root">
+          <%= image_tag(event.photo.url(:medium)) %>
+    	  <strong><%= event.actual_time.strftime('%d-%m-%Y') %></strong><br/>
+          <%= link_to event.title,  event_path(event)%>
+	    </div>
+      <% end %>
+	</td>
+  </tr>
+</table>

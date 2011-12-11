@@ -1,0 +1,23 @@
+<div id="page_name">События</div>
+<div class='content'>
+<div id="events">
+
+<table>
+<% @events.each do |event| %>
+  <tr>
+  	<td><%= event.actual_time.strftime('%d-%m-%Y') %></td>
+  	<td align='left'><strong><%= link_to event.title,  event_path(event)%></strong></td>
+ 	<% if logged_in? %>
+    <td><%= link_to 'Редактировать', edit_event_path(event) %></td>
+    <td><%= link_to 'Удалить', event_path(event), :confirm => 'Вы уверены?', :method => :delete %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+<br />
+<% if logged_in? %>
+<%= link_to 'Добавить событие', new_event_path %><br />
+
+<% end %>
+</div>
+</div>

@@ -1,0 +1,18 @@
+<% if User.count.zero? %>
+<h2>Регистрация администратора</h2>
+<% @user.password = @user.password_confirmation = nil %>
+
+<%= error_messages_for :user %>
+<% form_for :user, :url => users_path do |f| -%>
+<p><%= f.label :Логин %><br/>
+<%= f.text_field :login %></p>
+
+<p><%= f.label :Пароль %><br/>
+<%= f.password_field :password %></p>
+
+<p><%= f.label :Подтверждение_пароля %><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= submit_tag 'Зарегистрироваться' %></p>
+<% end -%>
+<%end%>

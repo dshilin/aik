@@ -1,0 +1,16 @@
+<div id="page_name">Национальный совет Айкидо России</div>
+<div class='content'>
+<% for nsar in @nsars %>
+  	<%= nsar.description %><br />
+<% end %>
+
+<% if logged_in? %>
+	<% if Nsar.count.zero? %>
+		<%= link_to 'Добавить текст страницу О нас', new_nsar_path %>
+	<% else %>
+		<%= link_to 'Изменить текст странице О нас', edit_nsar_path(nsar) %> |
+		<%= link_to 'Удалить текст со страницы О нас', nsar, :confirm => 'Вы уверены?', :method => :delete %>
+	<% end %>
+	<br />
+<% end %>
+</div>
