@@ -27,13 +27,14 @@ body {
     height: 30px;
 }
 
-#menu div:hover {
-    background-color: #be0000;
+
+#menu div {
+    background-color: #fff;
 }
 
 #menu div:hover a{
     text-decoration: none;
-    color: white;
+	color: #fff;
 }
 
 #content{

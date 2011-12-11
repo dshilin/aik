@@ -4,10 +4,12 @@
 <html  xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Руководство - Официальный сайт Национального совета Айкидо России</title>
+    <title>Галерея - Официальный сайт Национального совета Айкидо России</title>
     <%= stylesheet_link_tag 'aik' %>
+    <%= stylesheet_link_tag 'jquery.ad-gallery' %>
     <%= javascript_include_tag 'jquery' %>
     <%= javascript_include_tag 'jquery.color' %>
+    <%= javascript_include_tag 'jquery.ad-gallery.js' %>
 	<%= javascript_include_tag 'application' %>
 </head>
 <body>
@@ -40,7 +42,7 @@
 		</table>
 	</div>
 <br/>
-	<div id="content">
+	<div>
           <% flash.each do |key,value| %>
           <div id="flash" class="flash_<%= key %>" >
             <span class="message"><%= value %></span>
