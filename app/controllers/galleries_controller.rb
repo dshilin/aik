@@ -10,6 +10,14 @@ class GalleriesController < ApplicationController
     end
   end
 
+  def photo
+    @galleries = Gallery.find(:all, :conditions=>{:is_photo=>1})
+  end
+
+  def video
+    @galleries = Gallery.find(:all, :conditions=>{:is_photo=>0})
+  end
+
   # GET /galleries/1
   # GET /galleries/1.xml
   def show
@@ -44,7 +52,7 @@ class GalleriesController < ApplicationController
 
     respond_to do |format|
       if @gallery.save
-        flash[:notice] = '.Галерея успешно создана.'
+        flash[:notice] = 'Галерея успешно создана'
         format.html { redirect_to(@gallery) }
         format.xml  { render :xml => @gallery, :status => :created, :location => @gallery }
       else
@@ -61,7 +69,7 @@ class GalleriesController < ApplicationController
 
     respond_to do |format|
       if @gallery.update_attributes(params[:gallery])
-        flash[:notice] = 'Галерея успешно отредактирована.'
+        flash[:notice] = 'Галерея успешно отредактирована'
         format.html { redirect_to(@gallery) }
         format.xml  { head :ok }
       else

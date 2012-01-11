@@ -3,3 +3,4 @@ log/*.log
 public/concept_album/*
 db/*.sqlite3
 public/system/*
+.tmp*

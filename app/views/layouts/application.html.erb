@@ -6,9 +6,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Официальный сайт Национального совета Айкидо России</title>
     <%= stylesheet_link_tag 'aik' %>
+	<%= stylesheet_link_tag 'ddsmoothmenu' %>
     <%= javascript_include_tag 'jquery' %>
     <%= javascript_include_tag 'jquery.color' %>
+	<%= javascript_include_tag 'ddsmoothmenu' %>
 	<%= javascript_include_tag 'application' %>
+	<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "smoothmenu1", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script>
 </head>
 <body>
 <div id="roots" align="center">
@@ -28,17 +41,23 @@
     	</table>
   	</div>
 	<!-- Menu -->
-	<div id="menu">
-		<table>
-			<tr>
-            	<td><div><%=link_to 'Главная', ('/') %></div><div><%=link_to 'О нас', nsars_path%></div></td>
-                <td><div><%=link_to 'Новости', news_path %></div><div><%=link_to 'Галерея', galleries_path %></div></td>
-                <td><div><%=link_to 'События', events_path %></div><div><%=link_to 'Документы', documents_path %></div></td>
-                <td><div><%=link_to 'Руководство', participants_path %></div><div><%=link_to 'Контакты', contacts_path %></div></td>
-		  	</tr>
-		</table>
-	</div>
-	<br/>
+<div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><%=link_to 'Главная', ('/') %>
+<li><%=link_to 'Новости', news_path %></li>
+<li><%=link_to 'Галерея', galleries_path %>
+  <ul>
+  <li><%=link_to 'Фото', :controller => "galleries", :action => "photo" %></li>
+  <li><%=link_to 'Видео', :controller => "galleries", :action => "video" %></li>
+  </ul>
+</li>
+<li><%=link_to 'Документы', documents_path %></li>
+<li><%=link_to 'События', events_path %></li>
+<li><%=link_to 'О нас', nsars_path %></li>
+<li><%=link_to 'Руководство', participants_path %></li>
+<li><%=link_to 'Контакты', contacts_path %></li>
+</ul>
+</div>
 	<!-- Content -->
 	<div id="content">
   		<% flash.each do |key,value| %>

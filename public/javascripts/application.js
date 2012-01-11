@@ -2,16 +2,16 @@
 // This file is automatically included by javascript_include_tag :defaults
 jQuery(document).ready(function(){
 
-jQuery("#menu td div").mouseenter(
+jQuery(".ddsmoothmenu ul li a").mouseenter(
   function () {
 	jQuery(this).animate({
 		backgroundColor:"#be0000",
     }, 500 );
 });
 
-jQuery("#menu td div").mouseleave(function() {
+jQuery(".ddsmoothmenu ul li a").mouseleave(function() {
 	jQuery(this).animate({
-		backgroundColor:"#fff",
+		backgroundColor:"#848484",
     }, 50 );
 });
 

@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :nsars
 
-  map.resources :galleries
+  map.resources :galleries, :collection=>{:photo=>:get, :video=>:get}
 
   map.resources :events
 
